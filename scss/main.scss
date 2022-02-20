@@ -1,0 +1,6 @@
+@import "./utils/variables";
+
+body {
+    background-color: $color-primary;
+    display: flex;
+}
