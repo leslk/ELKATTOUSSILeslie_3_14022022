@@ -1,0 +1,7 @@
+button {
+    @include button-style;
+    &:hover {
+        background : $gradient-hover;
+        box-shadow: $hover-shadow;
+    }
+}

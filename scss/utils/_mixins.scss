@@ -1,0 +1,22 @@
+@mixin button-style {
+    display: block;
+    margin: auto;
+    background: $gradient;
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: $border;
+    padding: 10px 20px 10px 20px;
+    box-shadow: $shadow;
+}
+
+@mixin layout {
+    display: block;
+    align-items: center;
+}
+
+@mixin card-layout {
+    margin: $border;
+    box-shadow: $shadow;
+    border-radius: $border;
+}

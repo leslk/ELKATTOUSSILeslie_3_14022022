@@ -1,0 +1,15 @@
+.restaurants {
+    @include layout;
+    &__card {
+        @include card-layout;
+        &:hover {
+            box-shadow: $hover-shadow;
+        }
+    }
+    img {
+        width: $width;
+        height: 25%;
+        border-radius: $border $border 0 0;
+        object-fit: cover;
+    }
+}

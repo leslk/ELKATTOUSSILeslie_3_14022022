@@ -1,0 +1,15 @@
+header{
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: $border;
+    img{
+        width: 170px;
+        height: 30px;
+        margin: auto;
+    }
+    i{
+        position: absolute;
+    }
+}
+

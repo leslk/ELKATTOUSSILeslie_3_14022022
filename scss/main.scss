@@ -1,6 +1,8 @@
 @import "./utils/variables";
-
-body {
-    background-color: $color-primary;
-    display: flex;
-}
+@import "./utils/mixins";
+@import "./base/typography";
+@import "./base/reset";
+@import "./composants/button";
+@import "./layouts/header";
+@import "./layouts/footer";
+@import "./pages/home"
