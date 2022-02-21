@@ -7,8 +7,12 @@
 
 a {
     display: contents;
+    text-decoration: none;
 }
 
 ul > li {
     list-style: none;
+    & > a {
+        color: white;
+    }
 }

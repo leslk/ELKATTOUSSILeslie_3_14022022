@@ -1,8 +1,8 @@
 header{
-    display: flex;
+    @include flex-layout;
     position: relative;
-    align-items: center;
-    margin: $border;
+    height: 60px;
+    box-shadow: 0px 0px 8px 0px #808080;
     img{
         width: 170px;
         height: 30px;

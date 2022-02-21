@@ -1,22 +1,25 @@
 @mixin button-style {
-    display: block;
-    margin: auto;
     background: $gradient;
     border: none;
     color: white;
     text-align: center;
-    border-radius: $border;
-    padding: 10px 20px 10px 20px;
+    border-radius: 25px;
+    padding: 15px 25px;
     box-shadow: $shadow;
 }
 
-@mixin layout {
+@mixin bloc-layout {
     display: block;
     align-items: center;
 }
 
-@mixin card-layout {
-    margin: $border;
+@mixin flex-layout {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin card-layout($margin: $border){
+    margin: $margin;
     box-shadow: $shadow;
     border-radius: $border;
 }
