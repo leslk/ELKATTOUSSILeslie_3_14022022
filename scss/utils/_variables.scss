@@ -7,13 +7,14 @@ $silver-color: #f2f2f2;
 $gradient: linear-gradient(170deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
 $gradient-hover: linear-gradient(170deg,lighten(rgba(255,121,218,1),5%) 0%,lighten(rgba(147,86,220,1),5%) 100%);
 
-/* size */
-$width: 100%;
-$border: 20px;
-
 /* LISTES */
 $shadow: 0 4px 8px 0 silver;
 $hover-shadow: 0 4px 8px 0 #808080;
 $padding-bloc:  40px 0 40px 0;
 
+/* MAP */
+$breakpoints: (
+    tab: 768px,
+    desktop: 998px
+);
 

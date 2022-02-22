@@ -16,10 +16,23 @@
 @mixin flex-layout {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-@mixin card-layout($margin: $border){
+@mixin card-layout($margin: 20px){
     margin: $margin;
     box-shadow: $shadow;
-    border-radius: $border;
+    border-radius: 20px;
+}
+
+@mixin tab-only {
+    @media screen and (min-width: map-get($breakpoints, tab)){
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @media screen and (min-width: map-get($breakpoints, desktop)){
+        @content;
+    }
 }
