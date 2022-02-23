@@ -8,6 +8,22 @@
   font-family: "Roboto", sans-serif;
 }
 
+h1, h2 {
+  padding-bottom: 20px;
+}
+
+.empty-heart, .fill-heart {
+  font-size: 25px;
+  padding: 10px;
+  position: absolute;
+}
+
+.fill-heart {
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(170deg, #ff79da 0%, #9356dc 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -25,6 +41,11 @@ ul > li {
 }
 ul > li > a {
   color: white;
+}
+
+main {
+  padding: 50px 20px 50px 20px;
+  background-color: #f2f2f2;
 }
 
 button {
@@ -98,23 +119,23 @@ footer li .fa-hands-helping {
 .intro {
   background-color: #f2f2f2;
   text-align: center;
-  padding: 40px 0 40px 0;
+  padding: 50px 20px 50px 20px;
 }
-.intro h1, .intro p {
+.intro p {
   padding-bottom: 20px;
 }
 
 .running {
-  padding: 40px 0 40px 0;
-}
-.running h2 {
-  padding-left: 20px;
+  padding: 50px 20px 50px 20px;
 }
 .running__expl {
-  margin: 20px 20px 20px 40px;
+  margin-left: 20px;
+  position: relative;
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 silver;
   border-radius: 20px;
   display: flex;
+  justify-content: none;
   align-items: center;
   background: #f2f2f2;
   padding: 20px;
@@ -134,36 +155,30 @@ footer li .fa-hands-helping {
   line-height: 20px;
   text-align: center;
   background-color: #9356DC;
-  position: relative;
-  left: -30px;
+  position: absolute;
+  left: -10px;
   border-radius: 20px;
   flex-shrink: 0;
 }
 .running__content {
   display: flex;
+  justify-content: none;
   align-items: center;
 }
 .running__content i {
   margin: 0px 30px 0px 30px;
 }
 
-main {
-  padding: 40px 0 40px 0;
-  background: #f2f2f2;
-}
-main h2 {
-  padding-left: 20px;
-}
-main .restaurants__card {
-  margin: 20px;
+.restaurants__card {
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 silver;
   border-radius: 20px;
   position: relative;
 }
-main .restaurants__card:hover {
+.restaurants__card:hover {
   box-shadow: 0 4px 8px 0 #808080;
 }
-main .restaurants__new {
+.restaurants__new {
   background-color: #99E2D0;
   color: #278870;
   border-radius: 3px;
@@ -173,26 +188,22 @@ main .restaurants__new {
   right: 15px;
   padding: 8px 15px;
 }
-main .restaurants__info {
+.restaurants__info {
   display: flex;
-  justify-content: center;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   color: black;
   padding: 20px 10px 20px 10px;
 }
-main .restaurants__info .empty-heart {
-  font-size: 20px;
-  margin: 10px;
+.restaurants__like {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 60px;
 }
-main .restaurants__info .fill-heart {
-  font-size: 20px;
-  margin: 10px;
-  display: none;
-}
-main .restaurants img {
+.restaurants img {
   width: 100%;
-  height: 25%;
+  height: 180px;
   border-radius: 20px 20px 0 0;
   object-fit: cover;
 }
@@ -215,36 +226,46 @@ main .restaurants img {
 .menu-header {
   display: flex;
   justify-content: space-between;
-  margin: 0px 20px 0px 20px;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
 }
 .menu-header h1 {
   font-family: "shrikhand", sans-serif;
+  padding: 0;
 }
-.menu-header .empty-heart {
-  font-size: 20px;
-  margin: 10px;
+.menu-header__heart {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 60px;
 }
-.menu-header .fill-heart {
-  font-size: 20px;
-  margin: 10px;
-  display: none;
-}
-
-.menu {
-  margin: 20px 0px 20px 0px;
+.menu__category {
+  padding-bottom: 40px;
 }
 .menu h2 {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 20px;
+  position: relative;
+}
+.menu h2::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: #99e2d0;
+  position: absolute;
+  left: 0px;
+  bottom: 15px;
 }
 .menu .menu__item {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 silver;
   border-radius: 20px;
+  position: relative;
 }
 .menu .menu__item .item__name {
   margin: 15px;
@@ -260,11 +281,17 @@ main .restaurants img {
   font-weight: bold;
 }
 .menu .menu__item .check {
-  height: 71px;
-  width: 80px;
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  border-radius: 0px 20px 20px 0px;
+  height: 100%;
+  font-size: 30px;
+  padding: 0 20px;
   color: white;
   background-color: #99E2D0;
-  display: none;
 }
 
 .menu-button {

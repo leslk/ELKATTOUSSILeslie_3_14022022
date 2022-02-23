@@ -1,7 +1,5 @@
 .location {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-layout;
     padding: 20px;
     text-align: center;
     background-color: darken($silver-color, 5%);
@@ -17,7 +15,7 @@
     background-color: $silver-color;
     text-align: center;
     padding: $padding-bloc;
-    h1, p{
+    p{
         padding-bottom: 20px;
     }
     
@@ -25,13 +23,11 @@
 
 .running {
     padding: $padding-bloc;
-    h2 {
-        padding-left: 20px;
-    }
     &__expl {
-        @include card-layout(20px 20px 20px 40px);
-        display: flex;
-        align-items: center;
+        margin-left: 20px;
+        position: relative;
+        @include card-layout;
+        @include flex-layout(none);
         background: $silver-color;
         padding: 20px;
         height: 70px;
@@ -50,64 +46,57 @@
         line-height: 20px;
         text-align: center;
         background-color: $color-primary;
-        position: relative;
-        left: -30px;
+        position: absolute;
+        left: -10px;
         border-radius: 20px;
         flex-shrink: 0;
     }
     &__content {
-        display: flex;
-        align-items: center;
+        @include flex-layout(none);
         i {
             margin: 0px 30px 0px 30px;
         }
     }
 }
 
-main {
-    padding: $padding-bloc;
-    background: $silver-color;
-    h2{
-        padding-left: 20px;
+
+   
+.restaurants {
+    &__card {
+        @include card-layout;
+        position: relative;
+        &:hover {
+            box-shadow: $hover-shadow;
+        }
     }
-    .restaurants {
-        &__card {
-            @include card-layout;
-            position: relative;
-            &:hover {
-                box-shadow: $hover-shadow;
-            }
+    &__new {
+        background-color: $color-tertiary;
+        color: darken($color-tertiary, 40%);
+        border-radius: 3px;
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 8px 15px;
+    }
+    &__info {
+        @include flex-layout(space-between);
+        color: black;  
+        padding: 20px 10px 20px 10px;
         }
-        &__new {
-            background-color: $color-tertiary;
-            color: darken($color-tertiary, 40%);
-            border-radius: 3px;
-            font-weight: bold;
+        &__like{
             position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            right: 60px;
         }
-        &__info {
-            @include flex-layout;
-            justify-content: space-between; 
-            color: black;  
-            padding: 20px 10px 20px 10px;
-            .empty-heart{
-                font-size: 20px;
-                margin: 10px;
-            }
-            .fill-heart{
-                font-size: 20px;
-                margin: 10px;
-                display: none;
-            }
+        .fill-heart{
+            // display: none;
         }
-        img {
-            width: 100%;
-            height: 25%;
-            border-radius: 20px 20px 0 0;
-            object-fit: cover;
-        }
+    img {
+        width: 100%;
+        height: 180px;
+        border-radius: 20px 20px 0 0;
+        object-fit: cover;
     }
 }

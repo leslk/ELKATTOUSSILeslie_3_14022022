@@ -13,35 +13,47 @@
     position: static;
 }
 .menu-header{
-   display: flex;
-   justify-content: space-between;
-   margin: 0px 20px 0px 20px;
+   @include flex-layout(space-between);
+   margin-bottom: 40px;
+   position: relative;
    h1 {
        font-family: 'shrikhand', sans-serif;
-   }
-   .empty-heart{
-    font-size: 20px;
-    margin: 10px;
+       padding: 0;
+    }
+    &__heart{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        right: 60px;
     }
     .fill-heart{
-    font-size: 20px;
-    margin: 10px;
-    display: none;
+    // display: none;
     }
 }
 
 .menu{
-    margin: 20px 0px 20px 0px;
+    &__category{
+        padding-bottom: 40px;
+    }
     h2{
         text-transform: uppercase;
         font-weight: 400;
         font-size: 20px;
+        position: relative;
+        &::after{
+        content: '';
+        width: 40px;
+        height: 3px;
+        background: #99e2d0;
+        position: absolute;
+        left: 0px;
+        bottom: 15px;
+        }
     }
     .menu__item{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        @include flex-layout(space-between, flex-end);
         @include card-layout;
+        position: relative;
         .item__name{
             margin: 15px;
             white-space: nowrap;
@@ -56,11 +68,16 @@
             font-weight: bold;
         }
         .check{
-            height: 71px;
-            width: 80px;
+            @include flex-layout(none);
+            position: absolute;
+            right: 0;
+            border-radius: 0px 20px 20px 0px;
+            height: 100%;
+            font-size: 30px;
+            padding: 0 20px;
             color: white;
             background-color: $color-tertiary;
-            display: none;
+            // display: none;
         }
     }
 }

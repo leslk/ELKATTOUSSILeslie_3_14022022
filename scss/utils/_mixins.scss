@@ -13,14 +13,14 @@
     align-items: center;
 }
 
-@mixin flex-layout {
+@mixin flex-layout($justify: center, $align: center){
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: $justify;
+    align-items: $align;
 }
 
-@mixin card-layout($margin: 20px){
-    margin: $margin;
+@mixin card-layout {
+    margin-bottom: 20px;
     box-shadow: $shadow;
     border-radius: 20px;
 }
