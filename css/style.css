@@ -12,16 +12,18 @@ h1, h2 {
   padding-bottom: 20px;
 }
 
-.empty-heart, .fill-heart {
-  font-size: 25px;
+.heart__empty, .heart__fill {
+  font-size: 30px;
   padding: 10px;
   position: absolute;
+  cursor: pointer;
 }
 
-.fill-heart {
+.heart__fill {
   color: transparent;
   background-clip: text;
   background-image: linear-gradient(170deg, #ff79da 0%, #9356dc 100%);
+  opacity: 0;
 }
 
 * {
@@ -57,6 +59,7 @@ button {
   border-radius: 25px;
   padding: 15px 25px;
   box-shadow: 0 4px 8px 0 silver;
+  cursor: pointer;
 }
 button:hover {
   background: linear-gradient(170deg, #ff93e1 0%, #a16be0 100%);
@@ -137,6 +140,7 @@ footer li .fa-hands-helping {
   }
 }
 .running__expl {
+  cursor: pointer;
   margin-left: 20px;
   position: relative;
   margin-bottom: 20px;
@@ -221,7 +225,7 @@ footer li .fa-hands-helping {
   color: black;
   padding: 20px 10px 20px 10px;
 }
-.restaurants__like {
+.restaurants .heart {
   position: absolute;
   display: flex;
   align-items: center;
@@ -260,33 +264,35 @@ footer li .fa-hands-helping {
   font-family: "shrikhand", sans-serif;
   padding: 0;
 }
-.menu-header__heart {
+.menu-header .heart {
   position: absolute;
   display: flex;
   align-items: center;
   right: 60px;
 }
+
 @media screen and (min-width: 998px) {
   .menu-container {
     display: grid;
     grid-template-columns: 33% 33% 33%;
   }
 }
+
 @media screen and (min-width: 998px) {
-  .menu-container .menu {
+  .menu {
     padding: 10px;
   }
 }
-.menu-container .menu__category {
+.menu__category {
   padding-bottom: 40px;
 }
-.menu-container .menu h2 {
+.menu h2 {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 20px;
   position: relative;
 }
-.menu-container .menu h2::after {
+.menu h2::after {
   content: "";
   width: 40px;
   height: 3px;
@@ -295,46 +301,188 @@ footer li .fa-hands-helping {
   left: 0px;
   bottom: 15px;
 }
-.menu-container .menu .menu__item {
+.menu .menu__item {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  height: 70px;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 silver;
   border-radius: 20px;
   position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
-.menu-container .menu .menu__item .item__name {
+.menu .menu__item .item__name {
   margin: 15px;
   white-space: nowrap;
   overflow: hidden;
 }
-.menu-container .menu .menu__item .item__name p, .menu-container .menu .menu__item .item__name h3 {
+.menu .menu__item .item__name p, .menu .menu__item .item__name h3 {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.menu-container .menu .menu__item span {
+.menu .menu__item span {
   margin: 0px 15px 15px 0px;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
-.menu-container .menu .menu__item .check {
+.menu .menu__item .check {
   display: flex;
   justify-content: none;
   align-items: center;
   position: absolute;
-  right: 0;
+  right: -100px;
   border-radius: 0px 20px 20px 0px;
   height: 100%;
   font-size: 30px;
   padding: 0 20px;
   color: white;
   background-color: #99E2D0;
+  transition: all 0.5s;
 }
 
 .menu-button {
   display: flex;
   margin: 30px;
   justify-content: center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg) scale(1);
+    color: transparent;
+  }
+  50% {
+    color: #99E2D0;
+    transform: scale(1.8) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    color: transparent;
+  }
+}
+@keyframes fading {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+@keyframes empty {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fill {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rotate-logo {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  z-index: 1;
+  inset: 0;
+  position: fixed;
+  background-color: white;
+  animation: fading 3s;
+  animation-fill-mode: forwards;
+}
+.loading-spinner div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-spinner div i {
+  font-size: 150px;
+  background-image: linear-gradient(170deg, #ff79da 0%, #9356dc 100%);
+  background-clip: text;
+  color: transparent;
+  z-index: 2;
+  animation: rotation 1s 3;
+}
+
+.heart:hover .heart__empty {
+  animation: empty 1ms forwards;
+}
+.heart:hover .heart__fill {
+  animation: fill 2s forwards;
+  opacity: 1;
+}
+
+.menu__item {
+  opacity: 0;
+  animation: fill 1s forwards;
+}
+.menu__item:hover .check {
+  right: 0px;
+  transition: all 0.3s linear;
+}
+.menu__item:hover .check i {
+  animation: rotate-logo 0.7s ease 0.2s;
+}
+.menu__item:hover span {
+  padding-right: 70px;
+  transition: all 0.3s linear;
+}
+
+.case-1 {
+  animation-delay: 0s;
+}
+
+.case-2 {
+  animation-delay: 0.3s;
+}
+
+.case-3 {
+  animation-delay: 0.6s;
+}
+
+.case-4 {
+  animation-delay: 0.9s;
+}
+
+.case-5 {
+  animation-delay: 1.2s;
+}
+
+.case-6 {
+  animation-delay: 1.5s;
+}
+
+.case-7 {
+  animation-delay: 1.8s;
+}
+
+.case-8 {
+  animation-delay: 2.1s;
+}
+
+.case-9 {
+  animation-delay: 2.4s;
+}
+
+.case-10 {
+  animation-delay: 2.7s;
 }
 
 /*# sourceMappingURL=style.css.map */

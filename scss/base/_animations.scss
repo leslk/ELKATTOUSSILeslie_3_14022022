@@ -1,0 +1,138 @@
+@keyframes rotation {
+    0%{
+        transform: rotate(0deg) scale(1);
+        color: transparent;
+    }
+    50% {
+        color: $color-tertiary;
+        transform: scale(1.8) rotate(180deg);
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        color: transparent;
+    }
+}
+
+@keyframes fading {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@keyframes empty {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes fill {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes rotate-logo{
+    from{
+        transform: rotate(90deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner{
+    z-index: 1;
+    inset: 0;
+    position: fixed;
+    background-color: white;
+    animation: fading 3s;
+    animation-fill-mode: forwards;
+    div{
+        height: 100%;
+        @include flex-layout;
+        i{
+            font-size: 150px;
+            background-image: $gradient;
+            background-clip: text;
+            color: transparent;
+            z-index: 2;
+            animation: rotation 1s 3;
+        }
+    }
+}
+
+.heart{
+    &:hover{
+        .heart__empty{
+            animation: empty 1ms forwards;
+        }
+        .heart__fill{
+        animation: fill 2s forwards;
+        opacity: 1;
+        }
+    }
+}
+
+.menu__item{
+    opacity: 0;
+    animation: fill 1s forwards;
+    &:hover{
+        .check{
+            right: 0px;
+            transition: all 0.3s linear;
+            i{
+                animation: rotate-logo 0.7s ease 0.2s ;
+            }
+        }
+        span{
+            padding-right: 70px;
+            transition: all 0.3s linear;
+        }
+    }  
+    
+}
+
+.case-1{
+    animation-delay: 0s;
+}
+.case-2{
+    animation-delay: 0.3s;
+}
+.case-3{
+    animation-delay: 0.6s;
+}
+.case-4{
+    animation-delay: 0.9s;
+}
+.case-5{
+    animation-delay: 1.2s;
+}
+.case-6{
+    animation-delay: 1.5s;
+}
+.case-7{
+    animation-delay: 1.8s;
+}
+.case-8{
+    animation-delay: 2.1s;
+}
+.case-9{
+    animation-delay: 2.4s;
+}
+.case-10{
+    animation-delay: 2.7s;
+}
+

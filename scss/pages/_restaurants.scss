@@ -20,14 +20,11 @@
        font-family: 'shrikhand', sans-serif;
        padding: 0;
     }
-    &__heart{
+    .heart{
         position: absolute;
         display: flex;
         align-items: center;
         right: 60px;
-    }
-    .fill-heart{
-    // display: none;
     }
 }
 
@@ -36,6 +33,8 @@
         display: grid;
         grid-template-columns: 33% 33% 33%;
     }
+}
+
 .menu{
     @include desktop-only{
         padding: 10px;
@@ -60,8 +59,11 @@
     }
     .menu__item{
         @include flex-layout(space-between, flex-end);
+        height: 70px;
         @include card-layout;
         position: relative;
+        overflow: hidden;
+        cursor: pointer;
         .item__name{
             margin: 15px;
             white-space: nowrap;
@@ -74,22 +76,23 @@
         span{
             margin: 0px 15px 15px 0px;
             font-weight: bold;
+            transition: all 0.3s ease;
         }
         .check{
             @include flex-layout(none);
             position: absolute;
-            right: 0;
+            right: -100px;
             border-radius: 0px 20px 20px 0px;
             height: 100%;
             font-size: 30px;
             padding: 0 20px;
             color: white;
             background-color: $color-tertiary;
-            // display: none;
+            transition: all 0.5s;
         }
     }
 }
-}
+
 
 .menu-button{
     display: flex;
