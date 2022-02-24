@@ -31,7 +31,15 @@
     }
 }
 
+.menu-container{
+    @include desktop-only{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
 .menu{
+    @include desktop-only{
+        padding: 10px;
+    }
     &__category{
         padding-bottom: 40px;
     }
@@ -80,6 +88,7 @@
             // display: none;
         }
     }
+}
 }
 
 .menu-button{

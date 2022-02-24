@@ -1,6 +1,7 @@
 @mixin button-style {
     background: $gradient;
     border: none;
+    font-size: larger;
     color: white;
     text-align: center;
     border-radius: 25px;

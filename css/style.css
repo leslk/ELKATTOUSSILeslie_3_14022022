@@ -51,6 +51,7 @@ main {
 button {
   background: linear-gradient(170deg, #ff79da 0%, #9356dc 100%);
   border: none;
+  font-size: larger;
   color: white;
   text-align: center;
   border-radius: 25px;
@@ -128,6 +129,13 @@ footer li .fa-hands-helping {
 .running {
   padding: 50px 20px 50px 20px;
 }
+@media screen and (min-width: 768px) {
+  .running__case {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding-right: 20px;
+  }
+}
 .running__expl {
   margin-left: 20px;
   position: relative;
@@ -140,6 +148,11 @@ footer li .fa-hands-helping {
   background: #f2f2f2;
   padding: 20px;
   height: 70px;
+}
+@media screen and (min-width: 768px) {
+  .running__expl {
+    justify-content: center;
+  }
 }
 .running__expl:hover {
   background-color: #f2eafb;
@@ -162,13 +175,26 @@ footer li .fa-hands-helping {
 }
 .running__content {
   display: flex;
-  justify-content: none;
+  justify-content: center;
   align-items: center;
 }
 .running__content i {
-  margin: 0px 30px 0px 30px;
+  margin: 0px 20px 0px 20px;
+}
+@media screen and (min-width: 768px) {
+  .running__content i {
+    margin-left: 0;
+  }
 }
 
+@media screen and (min-width: 768px) {
+  .restaurants {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 20px;
+    justify-content: center;
+  }
+}
 .restaurants__card {
   margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 silver;
@@ -240,16 +266,27 @@ footer li .fa-hands-helping {
   align-items: center;
   right: 60px;
 }
-.menu__category {
+@media screen and (min-width: 998px) {
+  .menu-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+@media screen and (min-width: 998px) {
+  .menu-container .menu {
+    padding: 10px;
+  }
+}
+.menu-container .menu__category {
   padding-bottom: 40px;
 }
-.menu h2 {
+.menu-container .menu h2 {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 20px;
   position: relative;
 }
-.menu h2::after {
+.menu-container .menu h2::after {
   content: "";
   width: 40px;
   height: 3px;
@@ -258,7 +295,7 @@ footer li .fa-hands-helping {
   left: 0px;
   bottom: 15px;
 }
-.menu .menu__item {
+.menu-container .menu .menu__item {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -267,20 +304,20 @@ footer li .fa-hands-helping {
   border-radius: 20px;
   position: relative;
 }
-.menu .menu__item .item__name {
+.menu-container .menu .menu__item .item__name {
   margin: 15px;
   white-space: nowrap;
   overflow: hidden;
 }
-.menu .menu__item .item__name p, .menu .menu__item .item__name h3 {
+.menu-container .menu .menu__item .item__name p, .menu-container .menu .menu__item .item__name h3 {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.menu .menu__item span {
+.menu-container .menu .menu__item span {
   margin: 0px 15px 15px 0px;
   font-weight: bold;
 }
-.menu .menu__item .check {
+.menu-container .menu .menu__item .check {
   display: flex;
   justify-content: none;
   align-items: center;
