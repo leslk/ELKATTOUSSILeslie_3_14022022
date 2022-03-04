@@ -44,7 +44,7 @@
     }
 }
 
-@keyframes rotate-logo{
+@keyframes rotate-check{
     from{
         transform: rotate(90deg);
     }
@@ -94,7 +94,7 @@
             right: 0px;
             transition: all 0.3s linear;
             i{
-                animation: rotate-logo 0.7s ease 0.2s ;
+                animation: rotate-check 0.7s ease 0.2s ;
             }
         }
         span{

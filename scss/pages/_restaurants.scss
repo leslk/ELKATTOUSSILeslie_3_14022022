@@ -79,7 +79,7 @@
             transition: all 0.3s ease;
         }
         .check{
-            @include flex-layout(none);
+            @include flex-layout;
             position: absolute;
             right: -100px;
             border-radius: 0px 20px 20px 0px;
